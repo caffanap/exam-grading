@@ -1,0 +1,71 @@
+<div class="container mt-4">
+    <div class="card">
+        <div class="card-header text-center bg-primary">
+            <h1 class="text-white">Hasil Tryout</h1>
+        </div>
+        <div class="card-body">
+            <div class="d-flex box-nilai">
+                <div class="text-center">
+                    Nilai <br>
+                    <b class="nilai">
+                        {{ nilai }}
+                    </b>
+                </div>
+                <div class="text-center">
+                    Benar <br>
+                    <b class="nilai">
+                        {{ benar }}
+                    </b>
+                </div>
+                <div class="text-center">
+                    Salah <br>
+                    <b class="nilai">
+                        {{ salah }}
+                    </b>
+                </div>
+                <div class="text-center">
+                    Kosong <br>
+                    <b class="nilai">
+                        {{ kosong }}
+                    </b>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-header bg-primary">
+            <div class="text-center">
+                <h1 class="text-white">Peringkat Nasional</h1>
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="text-right">
+                <a class="btn btn-primary text-white mb-3" (click)="segarkan()">Segarkan</a>
+            </div>
+
+            <div class="table-responsive">
+                <table class="table align-items-center table-flush">
+                    <thead class="thead-light">
+                        <tr>
+                            <th scope="col" class="sort">Urutan</th>
+                            <th scope="col" class="sort">Nama</th>
+                            <th scope="col" class="sort">Nilai</th>
+                            <th scope="col" class="sort">Sisa Waktu</th>
+                        </tr>
+                    </thead>
+                    <tbody class="list">
+                        <ngx-spinner bdColor="rgba(0, 0, 0, 0.8)" size="medium" color="#fff" type="ball-beat"
+                            [fullScreen]="false">
+                        </ngx-spinner>
+                        <tr *ngFor="let item of nilaitryout; let i = index">
+                            <td> {{ i+1 }} </td>
+                            <td> {{ item.nama }} </td>
+                            <td><b> {{ item.nilai }} </b></td>
+                            <td>{{ item.sisa_waktu ? item.sisa_waktu+' detik' : 'Tidak ada sisa waktu' }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
